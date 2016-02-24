@@ -1,6 +1,6 @@
 # jrsj-report
 
-Latex file for JRSJ
+Latex template for JRSJ
 
 [![Build Status](https://travis-ci.org/furushchev/jrsj-report-template.svg)](https://travis-ci.org/furushchev/jrsj-report-template)
 
