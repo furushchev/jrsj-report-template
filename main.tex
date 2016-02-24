@@ -1,0 +1,81 @@
+\documentclass[paper]{jrsj}
+% \documentclass[article]{jrsj}
+\usepackage[dvipdfmx]{graphicx}
+\graphicspath{{figs/}}
+\usepackage{latexsym}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\figref}[1]{Fig.\ref{figure:#1}}
+\newcommand{\tabref}[1]{Table \ref{table:#1}}
+\newcommand{\secref}[1]{第\ref{section:#1}節}
+
+\typeofpaper{学術・技術論文}
+% \typeofarticle{解説}
+%% 発行年（コメントアウトしておく）
+%\Year{2000}
+%% 巻数（コメントアウトしておく）
+%\Vol{18}
+%% 号数（コメントアウトしておく）
+%\No{1}
+%% 邦文題名
+\title{タイトル}
+%% 邦文副題名（ある場合のみ）
+\subtitle{サブタイトル}
+%% 英文題名
+\etitle{Title}
+%% 英文副題名（ある場合のみ）
+\esubtitle{Subtitle}
+%% 著者のリスト
+\authorlist{%
+ \authorentry{姓 名}{First Second}{label}
+% \authorentry{}{}{}
+}
+%% 著者の所属
+\affiliate[label]{和文所属}{英文所属}
+%\affiliate[]{}{}
+
+%% 原稿受付日（記述しない，空欄に）
+\received{}
+
+\begin{document}
+%% 英文要旨
+\begin{abstract}
+\input src/abst.tex
+\end{abstract}
+%% 英文キーワード
+\begin{keywords}
+Template, LaTeX
+\end{keywords}
+\maketitle
+
+%% 本文
+\input src/intro.tex
+\input src/body.tex
+\input src/conclusion.tex
+
+%% 謝辞（ある場合のみ）
+\begin{acknowledgements}
+\input src/acknowledge.tex
+\end{acknowledgements}
+
+%% 文献
+\bibliographystyle{junsrt}
+\bibliography{main}
+
+%% 付録（ある場合のみ）
+\appendix
+\input src/appendix.tex
+
+%% 著者紹介（総合論文，学術・技術論文，解説論文のみ）
+\begin{biography}
+\profile{m}{名前（Name）}{紹介文}
+%\profile{}{}{}
+%\profile{}{}{}
+\end{biography}
+
+\end{document}
