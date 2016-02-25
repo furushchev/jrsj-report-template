@@ -4,23 +4,26 @@ compiler:
 - gcc
 matrix:
   include:
-    - os: linux
-      dist: trusty
-      sudo: required
-    - os: osx
+  - os: linux
+    dist: trusty
+    sudo: required
+  - os: osx
   allow_failures:
-    - os: osx
+  - os: osx
   fast_finish: true
 before_script:
-- if [ $TRAVIS_OS_NAME == "osx" ]; then brew update -y; else sudo apt-get update -y -qq; fi
-- if [ $TRAVIS_OS_NAME != "osx" ]; then sudo apt-get install -y -qq build-essential; fi
+- if [ $TRAVIS_OS_NAME == "osx" ]; then brew update -y; else sudo apt-get update -y
+  -qq; fi
+- if [ $TRAVIS_OS_NAME != "osx" ]; then sudo apt-get install -y -qq build-essential;
+  fi
 script:
 - make pub VERBOSE=1
 deploy:
   provider: releases
   api_key:
-# replace with your github api key
-    secure: IZM72Tw/G4sXFDmBW/yhiY18+uma/I1AlBpl3L3M2ZpVrFRrlvvGrkJkhZC/NdfqfS12Os+lxYFW7lbY3AjFdJsAhUGT/Ve6VzWU0RmxwjQRxbXUKjE4zukfIxA1NI3COM449KV7zcFKdbkAeln0DeLJ6roBfHLuu9HT2DH97yYXzilkDN3cpPOgkPBcehcA0VNj1PhighdA1rs7apeMFR7IhlvswDOxSVBtnaJnNQxVnav1VlIIBQc63nHhtrQUxfYzYuL9Xg/cy6xi+8uok4smyc46/ZXvTj0zd4Si3mVj18mMb/xGVOLBIVut1JRfMqHozrHFhFC1RCylJeM4eEJXUkR2uvK/aUn2td/bmCG76BudTBeGCr+ne/pbYLGdVEASHRMgkNnrrwAljYl2NA7i5JtMVS439j9A5U1+pMyeuHqTNBqZGHKI7wejoYEK021rqs2zxKYeD8b1g+7ZitPjUGO8r/9tEm8f0GzTgCeqkZM8xqzqrmkZuDfx54qZXmfKChBAZAa6sNnhZCT5sqZ6sx0bY4JwDMPd2+5r4qVRueic8do6hm6xrPtPrX1XdaSQPJNlwN6znKfq1OYZ9GBaFEzYEz301z5WS3d6tuzWA8uyoLTW49Z40iIvtZocDT8ri9ZOhz1ZvDdgWc2L1fAW37AMAcppym5QLF9lcfQ=
+    secure: sTHgZYpoJgZ/VYxTu5n2UzeHZn693HnVFX0Y73lmJPKHz20IjW3TRuX1ASIHL8XtTr164QcTuAfyUL/g9uSSFqpH7tGrA1gpI3sdN6TYk/tC9dQAiCiVJ68rwi9FU/akuRM+BQwZDCOzLJ+mNM9I22ZvHq+qds1Cq99T7Xy4Cpe3Tm21r40NsoglDXJYYcMuuToj5+ggOvGAvJyPvriHUqOsO1bNJGrQtWjQBAolcDLxqLstipjX3rLYN9y4RPR539D8FDi5JPzhq8LjO87B8ihcjqLicWRtuGYKSyhzaUC0s4/K2FuxZAwrQA0kKK4KF3fgWKKPHCzn31qEB10bT4df97zwCOOkYorEQZSDabyfqnUo6xIeDa03WjdHm4kgcalPEFPTyb3QYTx9KuKpflppcuw5mabElXjsR9St57z91hNQoH3K+b1dq6aHkZtpOgFCzhN2bGzktXpKI5RnJQgsdZz9vk2ePoJpWO4s4I7yU0U3ijx9mq+YSz6FS/R1u6HlxBaSjA0dBCrsd3lMSYIJAo666AHJCQpnlNqRa7imvsDXHw+ReIJ+WAp7VTnSoMFPigcSYhu2neHdXjQyTahFm/c4dkvZNPSAPB0ZpIn0FmNwrjdybZOARvK9zt70KMMcpQzq8xtceCDDlQ+vpX6FWcxEce/Su/e2aOXzVhs=
   file: main.pdf
+  skip_cleanup: true
   on:
+    repo: furushchev/jrsj-report-template
     tags: true
